@@ -1,0 +1,40 @@
+.wrap {
+  max-width: 640px;
+  margin-bottom: var(--space-10);
+}
+
+.center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-size: clamp(1.75rem, 3vw + 1rem, 2.75rem);
+  margin-bottom: var(--space-3);
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 1vw + 0.85rem, 1.25rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+@media (max-width: 639px) {
+  .wrap {
+    margin-bottom: var(--space-8);
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 9vw, 2.25rem);
+  }
+}

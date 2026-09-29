@@ -1,0 +1,136 @@
+.imageFrame {
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.projectImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.frameMobile,
+.frameBrowser {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--frame-ratio, 4 / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 120% at 20% 0%, hsl(var(--mockup-hue) 45% 94%) 0%, transparent 60%),
+    var(--color-surface);
+}
+
+:root:not([data-theme='light']) .frameMobile,
+:root:not([data-theme='light']) .frameBrowser {
+  background:
+    radial-gradient(120% 120% at 20% 0%, hsl(var(--mockup-hue) 35% 18%) 0%, transparent 60%),
+    var(--color-surface);
+}
+
+.phone::after,
+.browser::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 35%);
+  pointer-events: none;
+}
+
+/* Mobile frame */
+.phone {
+  width: 132px;
+  height: 264px;
+  background: var(--color-bg);
+  border: 3px solid var(--color-text);
+  border-radius: 22px;
+  padding: 10px 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.35), 0 4px 12px -4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.notch {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--color-text);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.phoneScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* Browser frame */
+.browser {
+  width: 86%;
+  max-width: 320px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.4), 0 4px 16px -8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.browserBar {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.browserBar span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.webBody {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dashboardBody {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sideItem {
+  height: 8px;
+  border-radius: 3px;
+  background: var(--color-border);
+}
+
+.dashMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}

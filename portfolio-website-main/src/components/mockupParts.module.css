@@ -1,0 +1,364 @@
+/* Shared miniature "UI" primitives — inherit --mockup-hue from DeviceMockup */
+
+.barLgInline,
+.barMdInline,
+.barSmInline {
+  display: block;
+  border-radius: 3px;
+}
+
+.barLgInline {
+  height: 9px;
+  background: var(--color-text);
+  opacity: 0.85;
+}
+
+.barMdInline {
+  height: 6px;
+  background: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.barSmInline {
+  height: 5px;
+  background: var(--color-border);
+}
+
+/* Stat chips */
+.statRow {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.statChip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  background: hsl(var(--mockup-hue) 35% 88%);
+  border: 1px solid var(--color-border);
+}
+
+:root:not([data-theme='light']) .statChip {
+  background: hsl(var(--mockup-hue) 28% 24%);
+}
+
+.statChipBar {
+  display: block;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--color-text);
+  opacity: 0.75;
+}
+
+.statChipBarSm {
+  display: block;
+  height: 4px;
+  width: 60%;
+  border-radius: 2px;
+  background: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* Charts */
+.sparkline {
+  width: 100%;
+  height: 34px;
+}
+
+.sparklinePath {
+  stroke: hsl(var(--mockup-hue) 55% 55%);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 40px;
+  width: 100%;
+}
+
+.barChartCol {
+  flex: 1;
+  border-radius: 2px 2px 0 0;
+  background: hsl(var(--mockup-hue) 45% 65%);
+  opacity: 0.85;
+}
+
+/* List rows */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.listRowTotal .listBars .barMdInline {
+  background: var(--color-text);
+  opacity: 1;
+}
+
+.dotMarker {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: hsl(var(--mockup-hue) 55% 55%);
+}
+
+.avatarMarker {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: hsl(var(--mockup-hue) 35% 82%);
+  border: 1px solid var(--color-border);
+}
+
+:root:not([data-theme='light']) .avatarMarker {
+  background: hsl(var(--mockup-hue) 28% 30%);
+}
+
+.rankMarker {
+  flex-shrink: 0;
+  width: 14px;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.listBars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.trailingPill {
+  flex-shrink: 0;
+  width: 26px;
+  height: 10px;
+  border-radius: 999px;
+  background: hsl(var(--mockup-hue) 45% 65%);
+  opacity: 0.7;
+}
+
+.trailingAmount {
+  flex-shrink: 0;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* Ring gauge */
+.ringWrap {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  flex-shrink: 0;
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(
+    hsl(var(--mockup-hue) 55% 55%) var(--ring-progress),
+    var(--color-border) 0
+  );
+}
+
+.ring::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+.ringRisk {
+  background: conic-gradient(
+    from -90deg,
+    hsl(140 55% 45%) 0% 33%,
+    hsl(45 85% 55%) 33% 66%,
+    hsl(0 65% 55%) 66% var(--ring-progress),
+    var(--color-border) 0
+  );
+}
+
+/* Image cards */
+.cards {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.cardsGrid {
+  flex-wrap: wrap;
+}
+
+.cardsGrid .imageCard {
+  flex: 1 1 calc(50% - 4px);
+}
+
+.cardsRow .imageCard {
+  flex: 1;
+}
+
+.imageCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.imageCardArt {
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 6px;
+  background: linear-gradient(135deg, hsl(var(--mockup-hue) 45% 75%), hsl(var(--mockup-hue) 35% 55%));
+}
+
+:root:not([data-theme='light']) .imageCardArt {
+  background: linear-gradient(135deg, hsl(var(--mockup-hue) 35% 32%), hsl(var(--mockup-hue) 30% 18%));
+}
+
+.starRow {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--color-border);
+}
+
+.star[data-filled='true'] {
+  background: hsl(40 80% 55%);
+}
+
+/* Map scene */
+.mapWrap {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: hsl(var(--mockup-hue) 30% 92%);
+  border: 1px solid var(--color-border);
+}
+
+:root:not([data-theme='light']) .mapWrap {
+  background: hsl(var(--mockup-hue) 22% 20%);
+}
+
+.mapGrid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.5;
+}
+
+.mapRoute {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mapRoutePath {
+  stroke: hsl(var(--mockup-hue) 55% 50%);
+  stroke-width: 2.5;
+  stroke-dasharray: 5 5;
+}
+
+.mapPin {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--color-accent);
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.mapDot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: hsl(var(--mockup-hue) 60% 55%);
+}
+
+/* Progress bars */
+.progressList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.progressTrack {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: hsl(var(--mockup-hue) 50% 55%);
+}
+
+/* Hero block (websites) */
+.heroBlockCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.ctaPill {
+  margin-top: 4px;
+  width: 64px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.logoChip {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--color-border);
+}

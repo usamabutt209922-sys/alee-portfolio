@@ -1,0 +1,73 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  will-change: transform;
+}
+
+.blobOne {
+  top: -20%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 720px;
+  max-height: 720px;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  animation: driftOne 38s ease-in-out infinite alternate;
+}
+
+.blobTwo {
+  bottom: -15%;
+  right: -10%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, hsl(24 85% 60%) 0%, transparent 70%);
+  opacity: 0.14;
+  animation: driftTwo 44s ease-in-out infinite alternate;
+}
+
+@keyframes driftOne {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(6vw, 8vh) scale(1.15);
+  }
+}
+
+@keyframes driftTwo {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-5vw, -6vh) scale(1.1);
+  }
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--color-text) 0.5px, transparent 0.5px);
+  background-size: 22px 22px;
+  mix-blend-mode: overlay;
+  opacity: 0.03;
+}
+
+:root:not([data-theme='light']) .blob {
+  opacity: 0.16;
+}
+
+:root:not([data-theme='light']) .blobTwo {
+  opacity: 0.1;
+}
